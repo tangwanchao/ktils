@@ -11,7 +11,7 @@ composeBom = "2024.09.00"
 appcompat = "1.7.1"
 material = "1.13.0"
 freeReflection = "3.2.2"
-source = "3.0.0"
+source = "3.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
