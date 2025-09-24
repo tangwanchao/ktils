@@ -49,7 +49,7 @@ afterEvaluate {
                 // 配置发布的元数据
                 groupId = "me.twc"
                 artifactId = "ktils"
-                version = "0.0.2"
+                version = "0.0.3"
             }
         }
     }
@@ -61,7 +61,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.reflection)
-    implementation(libs.source)
+    api(libs.source)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
