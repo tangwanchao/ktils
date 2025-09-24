@@ -26,3 +26,4 @@ dependencyResolutionManagement {
 rootProject.name = "ktils"
 include(":app")
 include(":core")
+include(":kpose")
