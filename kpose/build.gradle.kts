@@ -30,7 +30,7 @@ android {
         jvmTarget = "11"
     }
 
-    buildFeatures{
+    buildFeatures {
         compose = true
     }
 
@@ -46,12 +46,12 @@ afterEvaluate {
     publishing {
         publications {
             // Creates a Maven publication called "release".
-            create<MavenPublication>("release"){
+            create<MavenPublication>("release") {
                 from(components["release"])
                 // 配置发布的元数据
                 groupId = "me.twc"
                 artifactId = "kpose"
-                version = "0.0.3"
+                version = "0.0.4"
             }
         }
     }
@@ -59,15 +59,16 @@ afterEvaluate {
 
 dependencies {
 
-    api(libs.androidx.core.ktx)
-    api(libs.androidx.appcompat)
-    api(libs.androidx.activity.compose)
-    api(platform(libs.androidx.compose.bom))
-    api(libs.androidx.ui)
-    api(libs.androidx.ui.graphics)
-    api(libs.androidx.ui.tooling.preview)
-    api(libs.androidx.material3)
-    api(libs.androidx.navigation.compose)
+    api(libs.core.ktx)
+    api(libs.appcompat)
+    api(libs.activity.compose)
+    api(libs.viewmodel.compose)
+    api(libs.navigation.compose)
+    api(platform(libs.compose.bom))
+    api(libs.compose.ui)
+    api(libs.compose.ui.graphics)
+    api(libs.compose.ui.tooling.preview)
+    api(libs.compose.material3)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
