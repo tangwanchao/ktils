@@ -51,7 +51,7 @@ afterEvaluate {
                 // 配置发布的元数据
                 groupId = "me.twc"
                 artifactId = "kpose"
-                version = "0.0.4"
+                version = "0.0.5"
             }
         }
     }
@@ -69,6 +69,7 @@ dependencies {
     api(libs.compose.ui.graphics)
     api(libs.compose.ui.tooling.preview)
     api(libs.compose.material3)
+    api(libs.constraintlayout.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -13,6 +13,7 @@ material = "1.13.0"
 freeReflection = "3.2.2"
 source = "3.0.1"
 navigation = "2.9.5"
+constraintlayout = "1.1.1"
 
 [libraries]
 # core
@@ -25,6 +26,7 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 viewmodel-compose = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
+constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout"}
 
 # Compose-bom
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
