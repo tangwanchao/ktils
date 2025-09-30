@@ -1,7 +1,8 @@
-package me.twc.ktils.core.ext
+package me.twc.ktils.core.utils
 
 import android.content.res.Resources
 import android.util.DisplayMetrics
+import me.twc.ktils.core.Ktils
 import java.lang.reflect.Field
 
 /**

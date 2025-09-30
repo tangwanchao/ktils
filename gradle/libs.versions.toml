@@ -14,6 +14,7 @@ freeReflection = "3.2.2"
 source = "3.0.1"
 navigation = "2.9.5"
 constraintlayout = "1.1.1"
+logger = "2.2.0"
 
 [libraries]
 # core
@@ -24,9 +25,9 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 
 # Compose
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-viewmodel-compose = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout"}
+viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout" }
 
 # Compose-bom
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -37,8 +38,9 @@ compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 # ThirdPart
-source = {group = "me.twc", name = "source", version.ref = "source"}
-reflection = { group = "com.github.tiann", name = "FreeReflection", version.ref = "freeReflection"}
+source = { group = "me.twc", name = "source", version.ref = "source" }
+reflection = { group = "com.github.tiann", name = "FreeReflection", version.ref = "freeReflection" }
+logger = { group = "com.orhanobut", name = "logger", version.ref = "logger" }
 
 # Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -52,5 +54,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-maven-publish = { id = "maven-publish"}
+maven-publish = { id = "maven-publish" }
 

@@ -1,7 +1,7 @@
 package me.twc.ktils
 
 import android.app.Application
-import me.twc.ktils.core.ext.Ktils
+import me.twc.ktils.core.Ktils
 
 /**
  * @author 唐万超

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
+import me.twc.ktils.core.Ktils
 import me.twc.ktils.core.R
 
 class ToastConfig {

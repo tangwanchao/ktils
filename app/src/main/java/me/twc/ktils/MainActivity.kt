@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import me.twc.ktils.core.ext.Ktils
+import me.twc.ktils.core.Ktils
 import me.twc.ktils.core.ext.showLongToast
 import me.twc.ktils.core.ext.showShortToast
 import me.twc.ktils.ui.theme.KtilsTheme

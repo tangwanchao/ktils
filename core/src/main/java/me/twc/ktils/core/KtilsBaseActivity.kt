@@ -1,7 +1,8 @@
-package me.twc.ktils.core.ext
+package me.twc.ktils.core
 
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
+import me.twc.ktils.core.utils.AdapterScreenUtil
 
 /**
  * @author 唐万超
