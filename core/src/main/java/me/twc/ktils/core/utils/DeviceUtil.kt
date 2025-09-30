@@ -1,17 +1,21 @@
 package me.twc.ktils.core.utils
 
+import android.app.Activity
 import android.app.ActivityManager
 import android.app.usage.StorageStatsManager
 import android.content.Context
+import android.graphics.Point
 import android.os.Build
 import android.os.Environment
 import android.os.storage.StorageManager
 import androidx.annotation.WorkerThread
+import androidx.window.layout.WindowMetricsCalculator
 import me.twc.ktils.core.Ktils
 import java.io.File
 import java.math.BigDecimal
 import java.math.RoundingMode
 import kotlin.math.max
+import kotlin.math.min
 
 /**
  * @author 唐万超
@@ -106,5 +110,38 @@ object DeviceUtil {
         val memoryInfo = ActivityManager.MemoryInfo()
         am.getMemoryInfo(memoryInfo)
         return memoryInfo.totalMem
+    }
+
+    /**
+     * 获取当前激活屏幕大小
+     *
+     * 折叠设备可能有多个屏幕,此处获取的是最后激活的屏幕的大小
+     *
+     * @param context maximum 为 true 时,传递任意 context 均可
+     *                maximum 为 false时,必须传递 activity,否者抛出 IllegalArgumentException 异常
+     * @param maximum [true:获取的屏幕实际大小] [false:获取的是应用当前窗口屏幕大小]
+     * @param changed,改变得到的结果,短边作为宽,长边作为高
+     */
+    @Throws(IllegalArgumentException::class)
+    fun getScreenSize(
+        maximum: Boolean,
+        context: Context = Ktils.app,
+        changed: Boolean = true
+    ): Point {
+        val calculator = WindowMetricsCalculator.getOrCreate()
+        val maxMetrics = if (maximum) {
+            calculator.computeMaximumWindowMetrics(context)
+        } else {
+            if (context !is Activity) {
+                throw IllegalArgumentException("computeCurrentWindowMetrics 必须传递 activity")
+            }
+            calculator.computeCurrentWindowMetrics(context)
+        }
+        val bounds = maxMetrics.bounds
+        val bWidth = bounds.width()
+        val bHeight = bounds.height()
+        val width = if (changed) min(bWidth, bHeight) else bWidth
+        val height = if (changed) max(bWidth, bHeight) else bHeight
+        return Point(width, height)
     }
 }

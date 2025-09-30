@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.implementation
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -49,7 +47,7 @@ afterEvaluate {
                 // 配置发布的元数据
                 groupId = "me.twc"
                 artifactId = "ktils"
-                version = "0.0.7"
+                version = "0.0.8"
             }
         }
     }
@@ -57,12 +55,13 @@ afterEvaluate {
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.reflection)
+    api(libs.core.ktx)
+    api(libs.appcompat)
+    api(libs.material)
+    api(libs.reflection)
     api(libs.source)
     api(libs.logger)
+    api(libs.window)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

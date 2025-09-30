@@ -15,6 +15,7 @@ source = "3.0.1"
 navigation = "2.9.5"
 constraintlayout = "1.1.1"
 logger = "2.2.0"
+window = "1.5.0"
 
 [libraries]
 # core
@@ -22,6 +23,7 @@ core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx"
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+window = { group = "androidx.window", name = "window", version.ref = "window"}
 
 # Compose
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
