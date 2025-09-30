@@ -1,10 +1,14 @@
 package me.twc.ktils.core.utils
 
+import android.app.ActivityManager
 import android.app.usage.StorageStatsManager
+import android.content.Context
 import android.os.Build
 import android.os.Environment
 import android.os.storage.StorageManager
+import androidx.annotation.WorkerThread
 import me.twc.ktils.core.Ktils
+import java.io.File
 import java.math.BigDecimal
 import java.math.RoundingMode
 import kotlin.math.max
@@ -75,5 +79,32 @@ object DeviceUtil {
         } else {
             return size.toInt().toString() + "G"
         }
+    }
+
+    /**
+     * @param radix 换算进制
+     *
+     * @return Long 表示内存大小,B 为单位
+     */
+    @WorkerThread
+    fun getRam(radix: Int = 1000): Long {
+        // 首先读取 proc
+        try {
+            // MemTotal:       11483068 kB
+            val file = File("/proc/meminfo")
+            val line = file.readLines().firstOrNull { it.contains("MemTotal:") }?.trim()
+            if (line != null) {
+                var value = line.replace("""\D+""".toRegex(), "").toLong()
+                return value * radix
+            }
+        } catch (_: Exception) {
+            // ignore
+        }
+
+        // 用系统 api 读取
+        val am = Ktils.app.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val memoryInfo = ActivityManager.MemoryInfo()
+        am.getMemoryInfo(memoryInfo)
+        return memoryInfo.totalMem
     }
 }

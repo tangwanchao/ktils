@@ -12,11 +12,11 @@ class DateTimeTest {
 
     @Test
     fun millis2StringTest() {
-        val millis = 1759139286487
+        val millis = 1759139286000
         val dateTimeString = DateTimeUtil.millis2String(millis)
         assertEquals("2025-09-29 17:48:06", dateTimeString)
 
-        val newMillis = DateTimeUtil.string2Millis("dateTimeString")
-        assert(millis - newMillis < 1000L)
+        val newMillis = DateTimeUtil.string2Millis(dateTimeString)
+        assertEquals(millis,newMillis)
     }
 }
