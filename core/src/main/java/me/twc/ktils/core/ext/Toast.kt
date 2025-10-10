@@ -32,22 +32,25 @@ class ToastConfig {
     var textSize: Float = 15f.sp()
 
     var isLongToast: Boolean = false
+
+    // 是否展示空白字符消息
+    var showBlankMessage: Boolean = false
 }
 
 fun showShortToast(
     message: String,
     context: Context = Ktils.app,
     builder: (ToastConfig.() -> Unit)? = null
-){
-    showToast(message,context,builder)
+) {
+    showToast(message, context, builder)
 }
 
 fun showLongToast(
     message: String,
     context: Context = Ktils.app,
     builder: (ToastConfig.() -> Unit)? = null
-){
-    showToast(message,context){
+) {
+    showToast(message, context) {
         isLongToast = true
         builder?.invoke(this)
     }
@@ -64,6 +67,9 @@ fun showToast(
 ) {
     val config = ToastConfig()
     builder?.invoke(config)
+    if (!config.showBlankMessage && message.isBlank()) {
+        return
+    }
     Toast.makeText(context, message, Toast.LENGTH_SHORT).apply {
         view = TextView(context).apply {
             layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
