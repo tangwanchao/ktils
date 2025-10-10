@@ -12,16 +12,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import me.twc.ktils.core.Ktils
 import me.twc.ktils.core.ext.showLongToast
-import me.twc.ktils.core.ext.showShortToast
 import me.twc.ktils.ui.theme.KtilsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showShortToast("hello")
-        Ktils.resources.updateConfiguration()
         enableEdgeToEdge()
         setContent {
             KtilsTheme {

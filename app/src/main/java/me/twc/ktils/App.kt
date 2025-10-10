@@ -10,6 +10,6 @@ import me.twc.ktils.core.Ktils
 class App: Application() {
     override fun onCreate() {
         super.onCreate()
-        Ktils.init(this)
+        Ktils.init(this,true)
     }
 }
