@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(project(":core"))
+    implementation(project(":kpose"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

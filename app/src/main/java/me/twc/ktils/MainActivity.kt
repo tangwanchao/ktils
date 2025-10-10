@@ -12,7 +12,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import me.twc.ktils.core.ext.showLongToast
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import me.twc.kpose.rememberLauncherForActivityResultAwait
+import me.twc.ktils.core.ext.showShortToast
 import me.twc.ktils.ui.theme.KtilsTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,9 +26,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             KtilsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    val launcher = rememberLauncherForActivityResultAwait(SecondActivity.Contract())
                     Greeting(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding).clickable{
+                            lifecycleScope.launch(Dispatchers.Main) {
+                                val result = launcher.awaitLaunch(Unit)
+                                showShortToast(result)
+                            }
+                        }
                     )
                 }
             }
@@ -36,9 +46,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier.clickable{
-            showLongToast("long")
-        }
+        modifier = modifier
     )
 }
 
