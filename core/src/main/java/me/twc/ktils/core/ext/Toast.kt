@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
+import kotlinx.coroutines.launch
 import me.twc.ktils.core.Ktils
 import me.twc.ktils.core.R
 
@@ -70,15 +71,18 @@ fun showToast(
     if (!config.showBlankMessage && message.isBlank()) {
         return
     }
-    Toast.makeText(context, message, Toast.LENGTH_SHORT).apply {
-        view = TextView(context).apply {
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            setBackgroundResource(config.backgroundResId)
-            setPadding(config.paddingLeft, config.paddingTop, config.paddingRight, config.paddingBottom)
-            setTextColor(config.textColor)
-            text = message
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, config.textSize)
-        }
-        setGravity(Gravity.CENTER, 0, 0)
-    }.show()
+
+    ktilScope.launch {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).apply {
+            view = TextView(context).apply {
+                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                setBackgroundResource(config.backgroundResId)
+                setPadding(config.paddingLeft, config.paddingTop, config.paddingRight, config.paddingBottom)
+                setTextColor(config.textColor)
+                text = message
+                setTextSize(TypedValue.COMPLEX_UNIT_PX, config.textSize)
+            }
+            setGravity(Gravity.CENTER, 0, 0)
+        }.show()
+    }
 }
