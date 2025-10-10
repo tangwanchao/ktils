@@ -47,7 +47,7 @@ afterEvaluate {
                 // 配置发布的元数据
                 groupId = "me.twc"
                 artifactId = "ktils"
-                version = "0.0.9"
+                version = "0.0.10"
             }
         }
     }

@@ -51,7 +51,7 @@ afterEvaluate {
                 // 配置发布的元数据
                 groupId = "me.twc"
                 artifactId = "kpose"
-                version = "0.0.5"
+                version = "0.0.6"
             }
         }
     }
